@@ -34,6 +34,9 @@ for name, model in [('KNN', knn), ('SVM', svc)]:
     
     # Plot Confusion Matrix
     sns.heatmap(metrics.confusion_matrix(y_test,pred),annot=True,fmt="d")
+    plt.title(f"{name} Confusion Matrix")
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
     plt.show()
 
 

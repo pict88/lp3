@@ -43,12 +43,14 @@ rf=ensemble.RandomForestRegressor(n_estimators=10, max_depth=5 , random_state=42
 rf.fit(X_train,y_train)
 
 
-
-for name, model in [('Linear Regression',lr),('Random FOrest', rf)]:
+for name, model in [('Linear Regression',lr),('Random Forest', rf)]:
     print(name)
     pred=model.predict(X_test)
     print("R2 score= ", metrics.r2_score(y_test,pred))
     print("RMSE= ", metrics.mean_squared_error(y_test,pred))
 
-    plt.scatter(y_test[:100],pred[:100])
+    plt.scatter(y_test[:100], pred[:100])
+    plt.xlabel("Actual Fare Amount")
+    plt.ylabel("Predicted Fare Amount")
+    plt.title(name)
     plt.show()
